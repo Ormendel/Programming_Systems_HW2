@@ -27,20 +27,17 @@ void O(double amount)
 {
 	if(amount<0)
 		printf("Can't open a new account with invalid amount (<0)\n");
+	else if(openA==50)
+		printf("There is no option for opening new account because all are already taken.\n");
 	else
 	{
 		int i=0;
 		while(i<50&&arr[i].status=='Y')
-			i++;
-		if(i==50)
-			printf("There is no option for opening new account because all are already taken.\n");
-		else
-		{	
-			arr[i].status='Y';	
-			arr[i].amount=amount;
-			printf("Success! . Customer number is: #%d\n",i+901);
-			openA++;
-		}
+			i++;	
+		arr[i].status='Y';	
+		arr[i].amount=amount;
+		printf("Success! . Customer number is: #%d\n",i+901);
+		openA++;	
 	}
 }
 
@@ -78,8 +75,7 @@ void D(int id_customer, double amount)
 		arr[id_customer-901].amount+=amount;
 		printf("Success!\n");
 		B(id_customer);
-	}
-			
+	}			
 }
 
 /**
