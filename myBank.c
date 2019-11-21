@@ -31,11 +31,16 @@ void O(double amount)
 	{
 		int i=0;
 		while(i<50&&arr[i].status=='Y')
-			i++;	
-		arr[i].status='Y';	
-		arr[i].amount=amount;
-		printf("Success! . Customer number is: #%d\n",i+901);
-		openA++;
+			i++;
+		if(i==50)
+			printf("There is no option for opening new account because all are already taken.\n");
+		else
+		{	
+			arr[i].status='Y';	
+			arr[i].amount=amount;
+			printf("Success! . Customer number is: #%d\n",i+901);
+			openA++;
+		}
 	}
 }
 

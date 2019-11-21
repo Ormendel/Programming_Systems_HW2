@@ -35,15 +35,10 @@ int main()
 		switch(act)
 		{
 			case 'O':
-				if(arr[49].status=='Y')
-					printf("There is no option for opening new account because all are already taken.\n");
-				else
-				{
 					printf("Enter amount to put in a new account:\n");
 					scanf("%lf",&amount);
 					O(amount);
 					printf("\n");
-				}
 			break;
 			case 'B':
 					printf("Enter account number between 901 to 950\n");
