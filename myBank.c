@@ -7,6 +7,8 @@
 *The function isValidNum helps us to check validation of num, according to the demands in the assignment: return 1 if valid, 0 otherwise.
 */
 
+int openA=0;//counting how much open account exist
+
 int isValidNum(int id)
 {
 	/**
@@ -33,6 +35,7 @@ void O(double amount)
 		arr[i].status='Y';	
 		arr[i].amount=amount;
 		printf("Success! . Customer number is: #%d\n",i+901);
+		openA++;
 	}
 }
 
@@ -108,13 +111,14 @@ void C(int id_customer)
 			arr[id_customer-901].status='N';
 			arr[id_customer-901].amount=0;
 			printf("Account #%d has been closed successfully!\n",id_customer);
+			openA--;
 		break;
 		default://check is 2
 			printf("%d does not exist\n",id_customer);
 		break;
 	}
 }
-void I(double interest_rate)
+void I(int interest_rate)
 {
 	int counter=0;
 	if(interest_rate==0)	
@@ -127,7 +131,7 @@ void I(double interest_rate)
 		double calc;
 		for(i=0;i<50&&arr[i].status=='Y';i++)
 		{
-			calc=(100+interest_rate)/100;
+			calc=((double)(100+interest_rate))/100;
 			arr[i].amount=arr[i].amount*calc;//Updating with interest_rate
 			counter++;
 		}
@@ -145,15 +149,20 @@ void P()
 {
 	int i;
 	int counter=0;
-	for(i=0;i<50&&arr[i].status=='Y';i++)
-	{
-		B(i+901);
-		counter++;
-	}
-	if(counter==0)
+	if(openA==0)
 		printf("There are no open accounts, therefore the function did nothing\n");
 	else
+	{
+		for(i=0;i<50&&counter!=openA;i++)
+		{
+			if(arr[i].status=='Y')
+			{
+				B(i+901);
+				counter++;
+			}
+		}
 		printf("Finished printing all open accounts!\n");
+	}
 }
 
 /**
@@ -162,15 +171,20 @@ void P()
 void E()
 {
 	int i;
-	int counter=0;	
-	for(i=0;i<50&&arr[i].status=='Y';i++)
-	{
-		C(i+901);
-		counter++;
-	}
-	if(counter==0)
+	int counter=0;
+	if(openA==0)
 		printf("There are no open accounts, therefore the function did nothing\n");
 	else
-		printf("Finished erasing all open accounts!\n");
+	{
+		for(i=0;i<50&&counter!=openA;i++)
+		{
+			if(arr[i].status=='Y')
+			{
+				C(i+901);
+				counter++;
+			}
+		}
+		printf("Finished closing all open accounts!\n");
+	}
 }
 

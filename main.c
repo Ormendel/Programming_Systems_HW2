@@ -24,7 +24,7 @@ int main()
 	}
 	char act;
 	double amount;
-	double interest_rate;
+	int interest_rate;
 	int acc_num;
 	int check;
 	do
@@ -87,7 +87,7 @@ int main()
 			break;
 			case 'I':
 					printf("Enter Interest rate\n");
-					scanf("%lf",&interest_rate);
+					scanf("%d",&interest_rate);
 					I(interest_rate);
 					printf("\n");
 			break;
