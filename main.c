@@ -40,7 +40,7 @@ int main()
 				else
 				{
 					printf("Enter amount to put in a new account:\n");
-					scanf("%lf",&amount);	
+					scanf("%lf",&amount);
 					O(amount);
 					printf("\n");
 				}
@@ -59,11 +59,14 @@ int main()
 					{
 						printf("Enter amount to desposit in bank:\n");
 						scanf("%lf",&amount);
-						D(acc_num,amount);
+						if(scanf==0)//NOT valid
+							printf("The input is invalid!!!\n");
+						else
+							D(acc_num,amount);
 						printf("\n");
 					}
 					else
-						printf("%d does not exist\n",acc_num);				
+						printf("%d does not exist\n",acc_num);					
 			break;
 			case 'W':
 					printf("Enter account number between 901 to 950\n");
@@ -77,7 +80,7 @@ int main()
 						printf("\n");
 					}
 					else
-						printf("%d does not exist\n",acc_num);		
+						printf("%d does not exist\n",acc_num);	
 			break;
 			case 'C':
 					printf("Enter account number between 901 to 950\n");
