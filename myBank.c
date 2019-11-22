@@ -192,14 +192,10 @@ void E()
 	else
 	{
 		int i;
-		int counter=0;
-		for(i=0;i<50&&counter!=openA;i++)
+		for(i=0;i<50&&openA!=0;i++)
 		{
 			if(arr[i].status=='Y')
-			{
 				C(i+901);
-				counter++;
-			}
 		}
 		printf("Finished closing all open accounts!\n");
 	}
