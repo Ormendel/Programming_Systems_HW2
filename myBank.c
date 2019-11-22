@@ -8,7 +8,6 @@
 */
 
 int openA=0;//counting how much open account exist
-
 int isValidNum(int id)
 {
 	/**
@@ -48,16 +47,21 @@ void O(double amount)
 
 void B(int id_customer)
 {
-	int check=isValidNum(id_customer);
-	switch(check)
+	if(openA==0)
+		printf("There is no option for this action hence there are no open accounts at this moment.\n");
+	else
 	{
-		case 0: printf("%d does not exist\n",id_customer);
+		int check=isValidNum(id_customer);
+		switch(check)
+		{
+			case 0: printf("%d does not exist\n",id_customer);
 			break;
-		case 1: printf("The balance for customer #%d is: %0.2f\n",id_customer,arr[id_customer-901].amount);
+			case 1:	printf("The balance for customer #%d is: %0.2f\n",id_customer,arr[id_customer-901].amount);
 			break;
-		default://check is 2
+			default://check is 2
 			printf("%d does not exist\n",id_customer);
 			break;
+		}
 	}
 }
 
@@ -69,6 +73,8 @@ void D(int id_customer, double amount)
 {
 	if(amount<=0)
 		printf("Cannot desposit amount smaller or equal to zero\n");
+	else if(openA==0)
+		printf("There is no option for this action hence there are no open accounts at this moment.\n");
 	else//the given amount is positive and id_customer is valid and status is Y (open account)
 	{
 		printf("Customer #%d: adding %f to %0.2f...\n",id_customer,amount,arr[id_customer-901].amount);
@@ -85,6 +91,8 @@ void W(int id_customer, double amount)
 {
 	if(amount<=0)
 		printf("Cannot desposit amount smaller or equal to zero\n");
+	else if(openA==0)
+		printf("There is no option for this action hence there are no open accounts at this moment.\n");
 	else//the given amount is positive and id_customer is valid and status is Y (open account)
 	{
 		if(arr[id_customer-901].amount-amount<0)
@@ -103,20 +111,25 @@ void W(int id_customer, double amount)
 */
 void C(int id_customer)
 {
-	int check=isValidNum(id_customer);
-	switch(check)
+	if(openA==0)
+		printf("There is no option for this action hence there are no open accounts at this moment.\n");
+	else
 	{
-		case 0: printf("%d does not exist\n",id_customer);
-		break;
-		case 1://Everything is ok, closing...
-			arr[id_customer-901].status='N';
-			arr[id_customer-901].amount=0;
-			printf("Account #%d has been closed successfully!\n",id_customer);
-			openA--;
-		break;
-		default://check is 2
-			printf("%d does not exist\n",id_customer);
-		break;
+		int check=isValidNum(id_customer);
+		switch(check)
+		{
+			case 0: printf("%d does not exist\n",id_customer);
+			break;
+			case 1://Everything is ok, closing...
+				arr[id_customer-901].status='N';
+				arr[id_customer-901].amount=0;
+				printf("Account #%d has been closed successfully!\n",id_customer);
+				openA--;
+			break;
+			default://check is 2
+				printf("%d does not exist\n",id_customer);
+			break;
+		}
 	}
 }
 void I(int interest_rate)
@@ -126,20 +139,23 @@ void I(int interest_rate)
 		printf("No change in accounts\n");
 	else if(interest_rate<0)
 		printf("ERR: interest_rate has to be positive\n");
+	else if(openA==0)
+		printf("There is no option for this action hence there are no open accounts at this moment.\n");
 	else
 	{
 		int i;
 		double calc;
-		for(i=0;i<50&&arr[i].status=='Y';i++)
+		int counter=0;
+		for(i=0;i<50&&counter!=openA;i++)
 		{
-			calc=((double)(100+interest_rate))/100;
-			arr[i].amount=arr[i].amount*calc;//Updating with interest_rate
-			counter++;
+			if(arr[i].status=='Y')
+			{
+				calc=((double)(100+interest_rate))/100;
+				arr[i].amount=arr[i].amount*calc;//Updating with interest_rate
+				counter++;
+			}
 		}
-		if(counter!=0)
-			printf("Finished updating all open accounts successfully!\n");
-		else
-			printf("There are no open accounts, therefore the function did nothing\n");
+		printf("Finished updating all open accounts successfully!\n");
 	}					
 }
 
@@ -148,12 +164,12 @@ void I(int interest_rate)
 */
 void P()
 {
-	int i;
-	int counter=0;
 	if(openA==0)
-		printf("There are no open accounts, therefore the function did nothing\n");
+		printf("There is no option for this action hence there are no open accounts at this moment.\n");
 	else
 	{
+		int i;
+		int counter=0;
 		for(i=0;i<50&&counter!=openA;i++)
 		{
 			if(arr[i].status=='Y')
@@ -171,12 +187,12 @@ void P()
 */
 void E()
 {
-	int i;
-	int counter=0;
 	if(openA==0)
-		printf("There are no open accounts, therefore the function did nothing\n");
+		printf("There is no option for this action hence there are no open accounts at this moment.\n");
 	else
 	{
+		int i;
+		int counter=0;
 		for(i=0;i<50&&counter!=openA;i++)
 		{
 			if(arr[i].status=='Y')

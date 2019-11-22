@@ -35,67 +35,64 @@ int main()
 		switch(act)
 		{
 			case 'O':
-					printf("Enter amount to put in a new account:\n");
-					scanf("%lf",&amount);
-					O(amount);
-					printf("\n");
+				printf("Enter amount to put in a new account:\n");
+				scanf("%lf",&amount);
+				O(amount);
+				printf("\n");
 			break;
-			case 'B':
-					printf("Enter account number between 901 to 950\n");
-					scanf("%d",&acc_num);
-					B(acc_num);
-					printf("\n");
+			case 'B':	
+				printf("Enter account number between 901 to 950\n");
+				scanf("%d",&acc_num);
+				B(acc_num);
+				printf("\n");
 			break;
 			case 'D':
-					printf("Enter account number between 901 to 950\n");
-					scanf("%d",&acc_num);
-					check=isValidNum(acc_num);
-					if(check==1)
-					{
-						printf("Enter amount to desposit in bank:\n");
-						scanf("%lf",&amount);
-						if(scanf==0)//NOT valid
-							printf("The input is invalid!!!\n");
-						else
-							D(acc_num,amount);
-						printf("\n");
-					}
-					else
-						printf("%d does not exist\n",acc_num);					
+				printf("Enter account number between 901 to 950\n");
+				scanf("%d",&acc_num);
+				check=isValidNum(acc_num);
+				if(check==1)
+				{
+					printf("Enter amount to desposit in bank:\n");
+					scanf("%lf",&amount);
+					D(acc_num,amount);
+					printf("\n");
+				}
+				else
+					printf("%d does not exist\n",acc_num);				
 			break;
 			case 'W':
-					printf("Enter account number between 901 to 950\n");
-					scanf("%d",&acc_num);
-					check=isValidNum(acc_num);
-					if(check==1)
-					{
-						printf("Enter amount to withdraw from bank:\n");
-						scanf("%lf",&amount);
-						W(acc_num,amount);
-						printf("\n");
-					}
-					else
-						printf("%d does not exist\n",acc_num);	
+				printf("Enter account number between 901 to 950\n");
+				scanf("%d",&acc_num);
+				check=isValidNum(acc_num);
+				if(check==1)
+				{
+					printf("Enter amount to withdraw from bank:\n");
+					scanf("%lf",&amount);
+					W(acc_num,amount);
+					printf("\n");
+				}
+				else
+					printf("%d does not exist\n",acc_num);
 			break;
 			case 'C':
-					printf("Enter account number between 901 to 950\n");
-					scanf("%d",&acc_num);
-					C(acc_num);
-					printf("\n");
+				printf("Enter account number between 901 to 950\n");
+				scanf("%d",&acc_num);
+				C(acc_num);
+				printf("\n");
 			break;
 			case 'I':
-					printf("Enter Interest rate\n");
-					scanf("%d",&interest_rate);
-					I(interest_rate);
-					printf("\n");
+				printf("Enter Interest rate\n");
+				scanf("%d",&interest_rate);
+				I(interest_rate);
+				printf("\n");
 			break;
 			case 'P':
-				printf("Printing open accounts:\n");
+				printf("Printing all open accounts:\n");
 				P();
 				printf("\n");
 			break;
 			case 'E':
-				printf("Closing open accounts:\n");
+				printf("Closing all open accounts:\n");
 				E();
 				printf("\n");
 			break;

@@ -10,6 +10,7 @@ typedef struct Customers
 }Customers;
 
 Customers arr[50];
+
 /**
 *myBank.c Functions
 */
