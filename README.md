@@ -21,4 +21,4 @@ P(Print): prints all open account if there are(by calling to function B)
  
 E(Exit): closes all open accounts(by using function C) and exit the program afterwards.
 
-### Authors : @Or_Mendel (315524389) and @Reuven_Klavan (205416365)
+#### Authors : @Or_Mendel (315524389) and @Reuven_Klavan (205416365)
