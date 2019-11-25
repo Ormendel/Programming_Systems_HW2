@@ -26,12 +26,13 @@ void O(double amount)
 {
 	if(amount<0)
 		printf("Can't open a new account with invalid amount (<0)\n");
-	else if(openA==50)
+	else if(openA==size)
 		printf("There is no option for opening new account because all are already taken.\n");
 	else
 	{
+		printf("Creating new account with %.2f NIS...\n",amount);
 		int i=0;
-		while(i<50&&arr[i].status=='Y')
+		while(i<size&&arr[i].status=='Y')
 			i++;	
 		arr[i].status='Y';	
 		arr[i].amount=amount;
@@ -56,7 +57,7 @@ void B(int id_customer)
 		{
 			case 0: printf("%d does not exist\n",id_customer);
 			break;
-			case 1:	printf("The balance for customer #%d is: %0.2f\n",id_customer,arr[id_customer-901].amount);
+			case 1:	printf("The balance for customer #%d is: %.2f\n",id_customer,arr[id_customer-901].amount);
 			break;
 			default://check is 2
 			printf("%d does not exist\n",id_customer);
@@ -77,7 +78,7 @@ void D(int id_customer, double amount)
 		printf("There is no option for this action hence there are no open accounts at this moment.\n");
 	else//the given amount is positive and id_customer is valid and status is Y (open account)
 	{
-		printf("Customer #%d: adding %f to %0.2f...\n",id_customer,amount,arr[id_customer-901].amount);
+		printf("Customer #%d: adding %.2f to %.2f...\n",id_customer,amount,arr[id_customer-901].amount);
 		arr[id_customer-901].amount+=amount;
 		printf("Success!\n");
 		B(id_customer);
@@ -96,7 +97,7 @@ void W(int id_customer, double amount)
 	else//the given amount is positive and id_customer is valid and status is Y (open account)
 	{
 		if(arr[id_customer-901].amount-amount<0)
-			printf("Not enough cash, has %0.2f but wants to withdraw %f\n",arr[id_customer-901].amount, amount);
+			printf("Not enough cash, has %.2f but wants to withdraw %.2f\n",arr[id_customer-901].amount, amount);
 		else
 		{
 			arr[id_customer-901].amount-=amount;
@@ -146,7 +147,7 @@ void I(int interest_rate)
 		int i;
 		double calc;
 		int counter=0;
-		for(i=0;i<50&&counter!=openA;i++)
+		for(i=0;i<size&&counter!=openA;i++)
 		{
 			if(arr[i].status=='Y')
 			{
@@ -170,7 +171,7 @@ void P()
 	{
 		int i;
 		int counter=0;
-		for(i=0;i<50&&counter!=openA;i++)
+		for(i=0;i<size&&counter!=openA;i++)
 		{
 			if(arr[i].status=='Y')
 			{
@@ -192,7 +193,7 @@ void E()
 	else
 	{
 		int i;
-		for(i=0;i<50&&openA!=0;i++)
+		for(i=0;i<size&&openA!=0;i++)
 		{
 			if(arr[i].status=='Y')
 				C(i+901);

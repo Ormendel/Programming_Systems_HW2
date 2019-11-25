@@ -3,13 +3,15 @@
 *status - N is for No open account, Y is for an open account
 *amount - How much money does a customer have
 */
+#define size 50
+
 typedef struct Customers
 {
 	char status;
 	double amount;
 }Customers;
 
-Customers arr[50];
+Customers arr[size];
 
 /**
 *myBank.c Functions
