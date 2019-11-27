@@ -31,30 +31,30 @@ int main()
 	{
 		printf("Enter char:\n");
 		Menu();
-		scanf("%c",&act);
+		scanf(" %c",&act);
 		switch(act)
 		{
 			case 'O':
 				printf("Enter amount to put in a new account:\n");
-				scanf("%lf",&amount);
+				scanf(" %lf",&amount);
 				amount=(double)((int)(amount*100))/100.0;
 				O(amount);
 				printf("\n");
 			break;
 			case 'B':	
 				printf("Enter account number between 901 to 950\n");
-				scanf("%d",&acc_num);
+				scanf(" %d",&acc_num);
 				B(acc_num);
 				printf("\n");
 			break;
 			case 'D':
 				printf("Enter account number between 901 to 950\n");
-				scanf("%d",&acc_num);
+				scanf(" %d",&acc_num);
 				check=isValidNum(acc_num);
 				if(check==1)
 				{
 					printf("Enter amount to desposit in bank:\n");
-					scanf("%lf",&amount);
+					scanf(" %lf",&amount);
 					amount=(double)((int)(amount*100))/100.0;
 					D(acc_num,amount);
 					printf("\n");
@@ -64,12 +64,12 @@ int main()
 			break;
 			case 'W':
 				printf("Enter account number between 901 to 950\n");
-				scanf("%d",&acc_num);
+				scanf(" %d",&acc_num);
 				check=isValidNum(acc_num);
 				if(check==1)
 				{
 					printf("Enter amount to withdraw from bank:\n");
-					scanf("%lf",&amount);
+					scanf(" %lf",&amount);
 					amount=(double)((int)(amount*100))/100.0;
 					W(acc_num,amount);
 					printf("\n");
@@ -79,13 +79,13 @@ int main()
 			break;
 			case 'C':
 				printf("Enter account number between 901 to 950\n");
-				scanf("%d",&acc_num);
+				scanf(" %d",&acc_num);
 				C(acc_num);
 				printf("\n");
 			break;
 			case 'I':
 				printf("Enter Interest rate\n");
-				scanf("%d",&interest_rate);
+				scanf(" %d",&interest_rate);
 				I(interest_rate);
 				printf("\n");
 			break;

@@ -135,13 +135,12 @@ void C(int id_customer)
 }
 void I(int interest_rate)
 {
-	int counter=0;
-	if(interest_rate==0)	
+	if(openA==0)
+		printf("There is no option for this action hence there are no open accounts at this moment.\n");
+	else if(interest_rate==0)	
 		printf("No change in accounts\n");
 	else if(interest_rate<0)
 		printf("ERR: interest_rate has to be positive\n");
-	else if(openA==0)
-		printf("There is no option for this action hence there are no open accounts at this moment.\n");
 	else
 	{
 		int i;
