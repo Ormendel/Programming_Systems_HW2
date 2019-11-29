@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "myBank.h"
 
+
 void Menu()
 {
 	printf("O for open new account,\n");
@@ -15,13 +16,7 @@ void Menu()
 
 int main()
 {	
-	//Initialize accounts in array
-	int i;
-	for(i=0;i<size;i++)
-	{
-		arr[i].status='N';//No open account
-		arr[i].amount=0;//Default
-	}
+	printf("%c",arr[1].status);
 	char act;
 	double amount;
 	int interest_rate;

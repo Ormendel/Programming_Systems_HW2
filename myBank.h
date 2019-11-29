@@ -1,3 +1,7 @@
+#ifndef _MYBANK_H_
+#define _MYBANK_H_
+
+
 /**
 *Declaration of struct - Customers
 *status - N is for No open account, Y is for an open account
@@ -5,13 +9,13 @@
 */
 #define size 50
 
-typedef struct Customers
+typedef struct 
 {
 	char status;
 	double amount;
 }Customers;
 
-Customers arr[size];
+extern Customers arr[size];
 
 /**
 *myBank.c Functions
@@ -25,6 +29,8 @@ void C(int);
 void I(int);
 void P();
 void E();
+
+#endif
 
 
 
