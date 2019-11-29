@@ -20,6 +20,7 @@ extern Customers arr[size];
 /**
 *myBank.c Functions
 */
+void initializeArr(void);
 int isValidNum(int);
 void O(double);
 void B(int);

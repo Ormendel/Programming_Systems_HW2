@@ -16,7 +16,7 @@ void Menu()
 
 int main()
 {	
-	printf("%c",arr[1].status);
+	initializeArr();
 	char act;
 	double amount;
 	int interest_rate;

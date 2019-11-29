@@ -3,13 +3,23 @@
 #define start 901
 #define end 950
 
-Customers arr[size]={{'N',0}};
+Customers arr[size];//The cells are initiallized to be NULL
 /**
 *The functions below: O(Open),B(Balance),D(Desposit),W(Withdraw),C(Close),I(Update account's balances by Interest_rate),P(Print),E(Erase and exit)
 *The function isValidNum helps us to check validation of num, according to the demands in the assignment: return 1 if valid, 0 otherwise.
 */
 
 int openA=0;//counting how much open account exist
+
+void initializeArr(void)
+{	
+	int i;
+	for(i=0;i<size;i++)
+	{
+		arr[i].status='N';
+		arr[i].amount=0;
+	}
+}
 int isValidNum(int id)
 {
 	/**
@@ -26,7 +36,6 @@ int isValidNum(int id)
 }
 void O(double amount)
 {
-	printf("%c",arr[20].status);
 	if(amount<0)
 		printf("Can't open a new account with invalid amount (<0)\n");
 	else if(openA==size)
