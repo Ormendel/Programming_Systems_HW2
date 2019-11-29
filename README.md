@@ -10,6 +10,8 @@ O(Open): Firstly we need to check if there is an available number between 901 to
 
 B(Balance): receives account number and prints the current balance in that account.
 
+D(Deposit): receives account number and amount of money for desposit, and adds it to the balance of the customer.
+
 W(Withdraw): receive amount from the user to withdraw and the account number, and prints the new balance. 
 
 C(Close): receives an account number, checks validation. If the account is open - the function closes the account and all data in that account is erased immidiately.
