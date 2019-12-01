@@ -20,11 +20,11 @@ myBanks: $(LIBOBJECTS)
 
 main.o: main.c myBank.h
 	$(CC) $(FLAGS) -c main.c
-myBank.o: myBank.c
-	$(CC) -fPIC $(FLAGS) -c myBank.c
+myBank.o: myBank.c myBank.h
+	$(CC) $(FLAGS) -c -fPIC myBank.c
 
 .PHONY: clean all
-	mains maind
+	mains maind 
 clean: 
 	rm -f *.o mains maind $(LIBso) $(LIBa)
 
